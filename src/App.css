@@ -1,0 +1,146 @@
+/* App.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-header h1 {
+  margin-left: 10px;
+}
+
+.profile-picture-small {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile-picture-large {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px auto;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.loaded .profile-picture-large {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+main h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+main p {
+  font-size: 1.25rem;
+  color: #aaa;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.loaded main h2,
+.loaded main p {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toggle-switch {
+  position: relative;
+  width: 50px; /* Adjust the size as needed */
+  height: 25px; /* Adjust the size as needed */
+  background: #EFEFEF;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  transition: background 0.5s;
+}
+
+.toggle-knob {
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  background: #FFC107; /* Color of the knob */
+  border-radius: 50%;
+  transition: transform 0.5s;
+}
+
+.toggle-knob.dark {
+  transform: translateX(25px); /* Adjust the translate value based on the switch width */
+}
+
+.dark-mode .toggle-switch {
+  background: #1A1A1A;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+.social-icons a {
+  color: #aaa;
+  margin: 0 10px;
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #000;
+}
+
+.light-mode main p,
+.light-mode .social-icons a {
+  color: #555;
+}
