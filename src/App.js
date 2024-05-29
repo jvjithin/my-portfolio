@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Helmet } from 'react-helmet';
 import './App.css';
 import profileImg from './assets/images/Jithin.jpg';
 
@@ -68,14 +67,6 @@ const App = () => {
 
   return (
     <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
-      <Helmet>
-        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://cdnjs.cloudflare.com; object-src 'none'; upgrade-insecure-requests;" />
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="Referrer-Policy" content="no-referrer-when-downgrade" />
-        <meta httpEquiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
-        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-      </Helmet>
       <div className="container">
         <header>
           <div className="profile-header">
