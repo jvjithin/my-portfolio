@@ -27,8 +27,8 @@ header {
 }
 
 .profile-picture-small {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
 }
 
@@ -67,32 +67,34 @@ main p {
 
 .toggle-switch {
   position: relative;
-  width: 50px;
-  height: 25px;
+  width: 45px;
+  height: 45px;
   background: #d0cece;
+  border: none;
   border-radius: 50px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 5px;
+  padding: 7px;
   transition: background .5s;
 }
 
 .toggle-knob {
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   background-image: url('./assets/icons/on.png');
   background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   border-radius: 50%;
-  transition: transform 0.3s;
+  /* transition: transform 0.3s; */
 }
 
 .toggle-knob.dark {
-  transform: translateX(25px);
   background-image: url('./assets/icons/off.png');
   background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   border-radius: 50%;
 }
 

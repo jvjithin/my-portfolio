@@ -15,9 +15,9 @@ const App = () => {
   const [footerOffset, setFooterOffset] = useState(0);
 
   const checkScrollTop = useCallback(() => {
-    if (!showScrollButton && window.pageYOffset > window.innerHeight) {
+    if (!showScrollButton && window.scrollY > window.innerHeight) {
       setShowScrollButton(true);
-    } else if (showScrollButton && window.pageYOffset <= window.innerHeight) {
+    } else if (showScrollButton && window.scrollY <= window.innerHeight) {
       setShowScrollButton(false);
     }
   }, [showScrollButton]);
@@ -36,7 +36,7 @@ const App = () => {
 
   const checkScrollTopAndFooter = useCallback(() => {
     const footerHeight = footerRef.current?.offsetHeight || 0;
-    const scrollPosition = window.pageYOffset;
+    const scrollPosition = window.scrollY;
     const windowHeight = window.innerHeight;
     const bodyHeight = document.body.offsetHeight;
 
@@ -69,12 +69,12 @@ const App = () => {
   return (
     <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
       <Helmet>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://cdnjs.cloudflare.com; object-src 'none'; upgrade-insecure-requests;" />
-        <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-        <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
-        <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
-        <meta http-equiv="X-Frame-Options" content="DENY" />
-        <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://cdnjs.cloudflare.com; object-src 'none'; upgrade-insecure-requests;" />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+        <meta httpEquiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
+        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
       </Helmet>
       <div className="container">
         <header>
@@ -82,9 +82,8 @@ const App = () => {
             <img src={profileImg} alt="Selfie of Jithin" className="profile-picture-small" />
             <h1>Jithin</h1>
           </div>
-          <div
+          <button
             className="toggle-switch"
-            role="button"
             tabIndex={0}
             title='Theme toggle'
             onClick={toggleDarkMode}
@@ -93,14 +92,13 @@ const App = () => {
             aria-label={isDarkMode ? "Toggle light mode" : "Toggle dark mode"}
           >
             <div className={`toggle-knob ${isDarkMode ? 'dark' : 'light'}`}></div>
-          </div>
+          </button>
         </header>
         <main className={isLoaded ? 'loaded' : ''}>
           <div className='main-content'>
             <img src={profileImg} alt="Selfie of Jithin" className="profile-picture-large" />
             <h2>Jithin Vishnu R</h2>
             <p>I am a Software Development Engineer in Test with over 4+ years of experience in the tech industry specializing in QA & Automation.</p>
-            {Array(50).fill().map((_, index) => <p key={index}></p>)}
           </div>
           {showScrollButton && (
             <button
