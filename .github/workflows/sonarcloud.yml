@@ -1,32 +1,24 @@
 name: SonarCloud analysis
-
 on:
   push:
-    branches: [ "main", "*main*" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
-
-permissions:
-  pull-requests: read
-
+    types: [opened, synchronize, reopened]
 jobs:
-  Analysis:
+  sonarcloud:
+    name: SonarCloud
     runs-on: ubuntu-latest
-
     steps:
-     - name: Setup Java JDK
-     - uses: actions/setup-java@v4.2.1
-     - with:
-          java-version: '17'
-          distribution: 'temurin'
-          
-     - name: Analyze with SonarCloud
-     - uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
-       env:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-       with:
+        with:
           args:
             -Dsonar.projectKey=jvjithin_my-portfolio
             -Dsonar.organization=jvjithin
