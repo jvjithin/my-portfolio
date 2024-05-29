@@ -87,7 +87,6 @@ main p {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%;
-  /* transition: transform 0.3s; */
 }
 
 .toggle-knob.dark {
