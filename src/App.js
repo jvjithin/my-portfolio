@@ -27,7 +27,6 @@ const App = () => {
             <img src={profileImg} alt="Selfie of Jithin" className="profile-picture-large" />
             <h2>Jithin Vishnu R</h2>
             <p>I am a Software Development Engineer in Test with over 4+ years of experience in the tech industry specializing in QA & Automation.</p>
-            {Array(50).fill().map((_, index) => <p>{' '}</p>)}
           </div>
         </main>
       </div>

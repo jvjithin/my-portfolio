@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Footer = ({ footerRef }) => (
   <footer ref={footerRef}>
@@ -12,5 +13,9 @@ const Footer = ({ footerRef }) => (
     </div>
   </footer>
 );
+
+Footer.propTypes = {
+    footerRef: PropTypes.any.isRequired
+  };
 
 export default Footer;

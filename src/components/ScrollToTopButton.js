@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ScrollToTopButton = ({ showScrollButton, scrollToTop, footerOffset }) => (
   showScrollButton && (
@@ -13,5 +14,11 @@ const ScrollToTopButton = ({ showScrollButton, scrollToTop, footerOffset }) => (
     </button>
   )
 );
+
+ScrollToTopButton.propTypes = {
+  showScrollButton: PropTypes.bool.isRequired,
+  scrollToTop: PropTypes.func.isRequired,
+  footerOffset: PropTypes.number.isRequired
+};
 
 export default ScrollToTopButton;

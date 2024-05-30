@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SkipLink = ({ contentId }) => {
   return (
@@ -6,6 +7,10 @@ const SkipLink = ({ contentId }) => {
       Skip to main content
     </a>
   );
+};
+
+SkipLink.propTypes = {
+  contentId: PropTypes.string.isRequired
 };
 
 export default SkipLink;

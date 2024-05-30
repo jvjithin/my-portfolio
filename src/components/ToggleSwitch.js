@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ToggleSwitch = ({ isDarkMode, toggleDarkMode }) => (
   <button
@@ -13,5 +14,10 @@ const ToggleSwitch = ({ isDarkMode, toggleDarkMode }) => (
     <div className={`toggle-knob ${isDarkMode ? 'dark' : 'light'}`}></div>
   </button>
 );
+
+ToggleSwitch.propTypes = {
+  isDarkMode: PropTypes.bool.isRequired,
+  toggleDarkMode: PropTypes.func.isRequired,
+};
 
 export default ToggleSwitch;
