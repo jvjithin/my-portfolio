@@ -47,6 +47,7 @@ const Timeline = ({ items }) => {
                 <TimelineItem
                     data={item}
                     index={index}
+                    key={`timeline-item-${index}`}
                     isVisible={scrollProgress > (index / items.length)}
                 />
             ))}
