@@ -4,9 +4,12 @@ import SkipLink from './components/SkipLink';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
+import DownloadResumeButton from './components/DownloadResumeButton';
 import profileImg from './assets/images/Jithin.jpg';
 import useDarkMode from './hooks/useDarkMode';
 import useScroll from './hooks/useScroll';
+import Timeline from './components/Timeline';
+import timelineData from './assets/data/timeline';
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,7 +29,10 @@ const App = () => {
           <div className='main-content'>
             <img src={profileImg} alt="Selfie of Jithin" className="profile-picture-large" />
             <h2>Jithin Vishnu R</h2>
-            <p>I am a Software Development Engineer in Test with over 4+ years of experience in the tech industry specializing in QA & Automation.</p>
+            <p className="profile-description">I am a Software Quality Engineer with over 4 years of experience in the tech industry specializing in QA & Automation.</p>
+            <DownloadResumeButton />
+            <h2 className='timeline-header'>Reflecting on my journey...</h2>
+            <Timeline items={timelineData} />
           </div>
         </main>
       </div>
