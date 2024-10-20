@@ -47,12 +47,21 @@ const Timeline = ({ items }) => {
                 <TimelineItem
                     data={item}
                     index={index}
-                    key={index}
                     isVisible={scrollProgress > (index / items.length)}
                 />
             ))}
         </div>
     );
+};
+
+TimelineItem.propTypes = {
+    data: propTypes.shape({
+        title: propTypes.string.isRequired,
+        date: propTypes.string.isRequired,
+        description: propTypes.string.isRequired,
+    }).isRequired,
+    index: propTypes.number.isRequired,
+    isVisible: propTypes.bool.isRequired,
 };
 
 Timeline.propTypes = {
