@@ -32,7 +32,32 @@ body {
   min-height: 80vh;
   padding: 20px;
   max-width: 100%;
-  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+}
+
+.profile-container {
+  margin: 5% 0;
+}
+
+@keyframes segmented-rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.rainbow-text {
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 50% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: segmented-rainbow 10s ease infinite;
 }
 
 header {
@@ -40,7 +65,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0px 20px;
-  background-color: #EFEFEF;
 }
 
 .profile-header {
@@ -300,32 +324,36 @@ button.scroll-to-top:hover {
 
 .timeline-item.left {
   left: 0;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
 .timeline-item.right {
   left: 50%;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 
 .timeline-item .content {
   background: #f9f9f9;
   padding: 15px;
-  border-radius: 8px;
+  /* border-radius: 25px; */
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow-wrap: break-word;
   color: #000;
 }
 
+.timeline-item .content:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 .timeline-item.left .content {
   transform: translateX(-100%);
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
 .timeline-item.right .content {
   transform: translateX(100%);
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .timeline-item.active.left .content,
@@ -342,21 +370,42 @@ button.scroll-to-top:hover {
   background: #555;
 }
 
+.dark-mode .fluid-fill {
+  background: #c8c7c7;
+}
+
 .dark-mode .timeline-item .content {
   background: #333;
   color: #fff;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgb(255, 255, 255, 0.3);
 }
 
 @media screen and (max-width: 768px) {
-  .timeline-item {
-    width: 100%;
-    left: 0;
+
+  .profile-container {
+    margin: 40% 0;
   }
 
-  .timeline-item.left .content,
-  .timeline-item.right .content {
+  .timeline-item {
+    width: 100%;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
     transform: none;
+  }
+
+  .timeline-item.left .content {
+    transform: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
+  .timeline-item.right.active .content {
+    left: 0;
   }
 
   .timeline-line,

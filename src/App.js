@@ -27,10 +27,12 @@ const App = () => {
       <div className="container">
         <main id="main-content" className={isLoaded ? 'loaded' : ''}>
           <div className='main-content'>
-            <img src={profileImg} alt="Selfie of Jithin" className="profile-picture-large" />
-            <h2>Jithin Vishnu R</h2>
-            <p className="profile-description">I am a Software Quality Engineer with over 4 years of experience in the tech industry specializing in QA & Automation.</p>
-            <DownloadResumeButton />
+            <div className="profile-container">
+              <img src={profileImg} alt="Selfie of Jithin" className="profile-picture-large" />
+              <h2 className='rainbow-text'>Hi,<br />I'm Jithin Vishnu R</h2>
+              <p className="profile-description">I am a Software Quality Engineer with over 4 years of experience in the tech industry specializing in QA & Automation.</p>
+              <DownloadResumeButton />
+            </div>
             <h2 className='timeline-header'>Reflecting on my journey...</h2>
             <Timeline items={timelineData} />
           </div>
